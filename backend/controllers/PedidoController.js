@@ -76,7 +76,7 @@ module.exports = class PedidoController {
         return res.status(404).json({ message: "Pedido não encontrado" });
       }
 
-      res.json({ data: pedido });
+      res.json({ message: "Status atualizado com sucesso!", data: pedido });
     } catch (error) {
       res.status(500).json({ error: "Erro ao atualizar status" });
     }
@@ -92,6 +92,10 @@ module.exports = class PedidoController {
 
       const pedido = await Pedido.findById(id);
 
+      if (!pedido) {
+        return res.status(404).json({ message: "Pedido não encontrado" });
+      }
+      
       if (pedido.status === "CANCELADO")
         return res.status(409).json({ message: "O pedido já está cancelado!" });
 
@@ -99,11 +103,9 @@ module.exports = class PedidoController {
 
       await pedido.save();
 
-      if (!pedido) {
-        return res.status(404).json({ message: "Pedido não encontrado" });
-      }
-
-      res.status(200).json({ message: "Pedido cancelado com sucesso!" });
+      res
+        .status(200)
+        .json({ message: "Pedido cancelado com sucesso!", data: pedido });
     } catch (error) {
       res.status(500).json({ error: "Erro ao cancelar pedido" });
     }

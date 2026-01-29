@@ -6,7 +6,7 @@ const { validarCategoria } = require("../middlewares/ValidarCampos");
 router.post("/", validarCategoria, CategoriaController.criarCategoria);
 router.get("/", CategoriaController.listarCategoria);
 router.get("/admin", CategoriaController.listarCategoriaAdmin);
-router.put(
+router.patch(
   "/status/:id",
   validarCategoria,
   CategoriaController.atualizarCategoria,

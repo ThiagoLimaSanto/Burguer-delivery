@@ -33,7 +33,9 @@ module.exports = class CategoriaController {
 
       const categoria = await Categoria.create({ name });
 
-      res.status(201).json({ data: categoria });
+      res
+        .status(201)
+        .json({ message: "Categoria criada com sucesso!", data: categoria });
     } catch (error) {
       res.status(500).json({ message: "Erro ao criar uma nova categoria!" });
     }
@@ -57,7 +59,10 @@ module.exports = class CategoriaController {
       if (!categoria)
         return res.status(404).json({ message: "Categoria não encontrada!" });
 
-      res.status(200).json({ data: categoria });
+      res.status(200).json({
+        message: "Categoria atualizada com sucesso!",
+        data: categoria,
+      });
     } catch (error) {
       res.status(500).json({ message: "Erro ao atualizar uma categoria!" });
     }
@@ -80,7 +85,10 @@ module.exports = class CategoriaController {
 
       await categoria.save();
 
-      res.status(200).json({ data: categoria });
+      res.status(200).json({
+        message: "Categoria desativada com sucesso!",
+        data: categoria,
+      });
     } catch (error) {
       res.status(500).json({ message: "Erro ao desativar uma categoria!" });
     }
