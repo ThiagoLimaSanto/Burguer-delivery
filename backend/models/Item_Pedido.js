@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-export const OrderItemSchema = new Schema({
-  produto: {
+module.export = OrderItemSchema = new Schema({
+  product: {
     type: Schema.Types.ObjectId,
     ref: "Produto",
     required: true,
   },
-  quantidade: {
+  quantity: {
     type: Number,
     required: true,
   },
-  preco: {
+  price: {
     type: Number,
     required: true,
   },

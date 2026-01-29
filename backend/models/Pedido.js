@@ -1,16 +1,10 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
+const OrderItemSchema = require("./Item_Pedido")
 
 const OrderSchema = new Schema(
   {
-    items: [
-      {
-        produtoId: String,
-        nome: String,
-        quantidade: Number,
-        preco: Number,
-      },
-    ],
+    items: [OrderItemSchema],
     total: {
       type: Number,
       required: true,

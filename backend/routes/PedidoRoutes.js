@@ -1,12 +1,20 @@
 const router = require("express").Router();
 const PedidoController = require("../controllers/PedidoController");
 
-const { validarPedido } = require("../middlewares/ValidarCampos");
+const {
+  validarPedido,
+  validarItem_pedido,
+} = require("../middlewares/ValidarCampos");
 
-router.post("/", validarPedido, PedidoController.criarPedido);
+router.post(
+  "/",
+  validarPedido,
+  validarItem_pedido,
+  PedidoController.criarPedido,
+);
 router.get("/", PedidoController.listarPedidos);
 router.get("/:id", PedidoController.listarPedidoPorId);
-router.put("/status/:id", validarPedido, PedidoController.atualizarStatus);
+router.patch("/status/:id", PedidoController.atualizarStatus);
 router.delete("/:id", PedidoController.deletarPedido);
 
 module.exports = router;

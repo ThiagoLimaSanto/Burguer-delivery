@@ -1,4 +1,4 @@
-const Pedido = require("../models/Pedido")
+const Pedido = require("../models/Pedido");
 const ObjectId = require("mongoose").Types.ObjectId;
 
 module.exports = class PedidoController {
@@ -32,8 +32,12 @@ module.exports = class PedidoController {
   }
 
   static async criarPedido(req, res) {
-    const { items, total, clienteNome, clienteTelefone, clienteEndereco } =
-      req.body;
+    const { items, clienteNome, clienteTelefone, clienteEndereco } = req.body;
+
+    const total = items.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0,
+    );
 
     try {
       const pedido = await Pedido.create({
@@ -87,6 +91,9 @@ module.exports = class PedidoController {
       }
 
       const pedido = await Pedido.findById(id);
+
+      if (pedido.status === "CANCELADO")
+        return res.status(409).json({ message: "O pedido já está cancelado!" });
 
       pedido.status = "CANCELADO";
 
