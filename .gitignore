@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+delivery/node_modules/
+backend/node_modules/
+
+# Build / dist
+build/
+dist/
+delivery/build/
+
+# Env
+.env
+backend/.env
+delivery/.env
+
+# System files
+.DS_Store
+Thumbs.db
