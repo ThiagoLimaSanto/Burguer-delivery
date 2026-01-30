@@ -4,7 +4,7 @@ const Contato = () => {
     return (
         <footer id='contato'>
             <section>
-                <h3>Burguer House</h3>
+                <h3>Rei da Chapa</h3>
                 <p>O melhor hamúrguer artesanal da cidade.</p>
             </section>
             <section>
@@ -22,7 +22,7 @@ const Contato = () => {
                 <p>Instagram</p>
                 <p>Facebook</p>
             </section>
-            <p className='copy'>© Copyright 2026 - DevBurguer</p>
+            <p className='copy'>© Copyright 2026 - Rei da Chapa</p>
         </footer>
     )
 }

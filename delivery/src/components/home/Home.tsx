@@ -8,7 +8,7 @@ const Home = () => {
             <article className="hero">
                 <div>
                     <h1>O Melhor Hamburguer da Cidade</h1>
-                    <p>Igredientes fescos, receitas especiais e entrega rápida. Peça agora e receba em até 55 minutos!</p>
+                    <p>Igredientes fescos, receitas especiais e entrega rápida. Peça agora e receba em até 40 minutos!</p>
                     <div className='hero-buttons'>
                         <HashLink id="/#cardapio" className="btn" smooth to="/#cardapio">
                             Ver Cardápio

@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <header>
             <HashLink className="logo" smooth to="/#home">
-                <GiHamburger size={32} color='#8B4513' />Burguer House
+                <GiHamburger size={32} color='#8B4513' />Rei da Chapa
             </HashLink>
             <nav className='navbar'>
                 <HashLink smooth to="/#home">
